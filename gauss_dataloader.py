@@ -112,7 +112,7 @@ def save_xyz_to_ply(xyz_points, filename, rgb_colors=None, normals_points=None, 
     assert xyz_points.shape[1] == 3, "Input points should be in the format (N, 3)"
 
     if rgb_colors is None:
-        rgb_colors = tensor.full((xyz_points.shape[0], 3), 255, dtype=torch.int)
+        rgb_colors = torch.full((xyz_points.shape[0], 3), 255, dtype=torch.int)
 
     total_points = xyz_points.shape[0]
 
