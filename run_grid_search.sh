@@ -1,17 +1,22 @@
 #!/bin/bash
 
-base_input_folder="../Wheat-GS/data/wheat_heads/pipeline1/20240717"
+#base_input_folder="../Wheat-GS/data/wheat_heads/pipeline1/20240717"
+base_input_folder="../Wheat-GS/data/wheat_heads/pipeline1_unscaled_all_atributes/20240717"
 base_output_folder="../Wheat-GS/results/3DGS-to-PC/pipeline1/grid_search"
 
-#plots=(461 462 463 464 465 466 467)
-plots=(461)
-min_opacities=(0.1 0.2)
-cull_gaussian_sizes=(0.01 0.05)
-std_distances=(1.0 2.0)
+plots=(462 463 464 465 466 467)
+#plots=(461)
+#min_opacities=(0.1 0.2)
+min_opacities=(0.1)
+#cull_gaussian_sizes=(0.01 0.05)
+cull_gaussian_sizes=(0.05)
+#std_distances=(1.0 2.0)
+std_distances=(2.0)
 num_points=100000
 
 for plot in "${plots[@]}"; do
-    input_folder="$base_input_folder/plot_${plot}_unscaled_all_attributes"
+    #input_folder="$base_input_folder/plot_${plot}_unscaled_all_attributes"
+    input_folder="$base_input_folder/plot_${plot}"
     for min_opacity in "${min_opacities[@]}"; do
         for cull_gaussian_size in "${cull_gaussian_sizes[@]}"; do
             for std_distance in "${std_distances[@]}"; do
